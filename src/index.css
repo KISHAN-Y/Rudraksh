@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@import "./styles/animations.css";
+
+@theme {
+  --color-page-bg: #F0F8FF;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F7FBFF;
+  
+  --color-primary-light: #E3F2FD;
+  --color-primary: #5AACE0;
+  --color-primary-mid: #2F87C8;
+  --color-primary-dark: #1565A8;
+  
+  --color-teal-light: #E8FAF5;
+  --color-teal: #4ABFAA;
+  
+  --color-accent-light: #FFF8EE;
+  --color-accent: #F5A623;
+  
+  --color-mint-light: #F0FDF8;
+  --color-mint: #A8E6CF;
+  
+  --color-text-primary: #1A2C3D;
+  --color-text-secondary: #4A6278;
+  --color-text-muted: #8FA5B8;
+  
+  --color-border: #D8EEFF;
+  --color-border-strong: #B0D4F0;
+  --color-divider: #EBF4FC;
+
+  /* Custom Redesign Mockup Style Adaptations (using original palette) */
+  --color-brand-dark: #0A192F;      /* Deep navy for dark sections */
+  --color-brand-medium: #112240;    /* Mid navy for card/grid backdrops */
+  --color-brand-accent: #4ABFAA;    /* Teal accent (originally mint) */
+  --color-brand-accent-alt: #5AACE0;/* Blue accent */
+  --color-brand-light: #F0F8FF;     /* Alice blue for light sections */
+
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Aptos', 'Segoe UI', 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-page-bg);
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+    max-width: 1280px;
+  }
+}
+
+@layer utilities {
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(90,172,224,0.05), 0 2px 4px -1px rgba(90,172,224,0.03);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .card-shadow:hover {
+    box-shadow: 0 8px 32px rgba(90, 172, 224, 0.14);
+    transform: translateY(-2px);
+  }
+  .focus-ring {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(90,172,224,0.20);
+  }
+}
