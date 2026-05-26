@@ -13,7 +13,7 @@ export const cases = [
     id: 2,
     patientName: 'S. Mehta',
     treatmentType: 'Cosmetic Dentistry',
-    description: 'Patient wanted a "Hollywood smile". We used 6 porcelain veneers on the upper anteriors to correct mild crowding and discoloration.',
+    description: 'Patient wanted a "Hollywood smile". Dr. Malkesh used 6 porcelain veneers on the upper anteriors to correct mild crowding and discoloration.',
     duration: '2 weeks',
     beforeDesc: 'Stained and slightly overlapping front teeth',
     afterDesc: 'Bright, perfectly aligned smile with veneers',

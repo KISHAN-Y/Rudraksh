@@ -82,10 +82,10 @@ const HeroSection = () => {
                     Book Appointment
                   </button>
                 </Link>
-                <a href="tel:+919876543210">
+                <a href="tel:+919725041336">
                   <button className="flex items-center justify-center gap-2.5 text-white/90 font-heading font-medium text-sm tracking-wide rounded-full px-8 py-4 border border-white/20 hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
                     <Phone size={16} />
-                    +91 98765 43210
+                    +91 97250 41336
                   </button>
                 </a>
               </div>

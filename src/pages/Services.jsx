@@ -25,13 +25,13 @@ const Services = () => {
       <div className="bg-primary/5 py-20 px-4 border-b border-border">
         <div className="container max-w-4xl text-center">
           <SectionHeading 
-            title="Our Treatments" 
+            title="Treatments Offered" 
             subtitle="Comprehensive Care"
             className="mb-8"
           />
           <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
-            We provide a wide range of specialized dental treatments using state-of-the-art 
-            technology to ensure painless procedures and stunning results. See the impact of our work.
+            Dr. Malkesh Pankhaniya provides a wide range of specialized dental treatments using state-of-the-art 
+            technology to ensure painless procedures and stunning results. See the impact of his work.
           </p>
         </div>
       </div>

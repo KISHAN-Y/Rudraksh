@@ -17,7 +17,7 @@ const WhyChooseUs = () => {
     },
     {
       title: "Patient-First Approach",
-      desc: "We prioritize your comfort and anxiety levels, ensuring a relaxing environment throughout your visit.",
+      desc: "Your comfort and peace of mind are prioritized, ensuring a relaxing environment throughout your visit.",
       icon: Heart
     },
     {
@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
     <section className="py-24 bg-primary text-white">
       <div className="container">
         <SectionHeading 
-          title="Why Patients Choose Us" 
+          title="Why Patients Choose Dr. Malkesh" 
           subtitle="The Rudreksh Difference" 
           theme="dark"
           className="mb-16"

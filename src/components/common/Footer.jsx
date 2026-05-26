@@ -18,7 +18,7 @@ const Footer = () => {
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed">
               Expert dental care in Gujarat specializing in implants, RCT, braces, and cosmetic dentistry. 
-              Your smile is our priority.
+              Your smile is the top priority.
             </p>
             <div className="flex gap-4 pt-2">
               <a href="#" className="w-10 h-10 rounded-full bg-primary-light text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
@@ -76,8 +76,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+919876543210" className="text-text-secondary text-sm hover:text-primary transition-colors">
-                  +91 98765 43210
+                <a href="tel:+919725041336" className="text-text-secondary text-sm hover:text-primary transition-colors">
+                  +91 97250 41336
                 </a>
               </li>
               <li className="flex items-center gap-3">

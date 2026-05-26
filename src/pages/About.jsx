@@ -46,7 +46,7 @@ const About = () => {
             </div>
             
             <div className="bg-white p-8 rounded-3xl shadow-xl border border-border card-shadow space-y-6">
-              <h3 className="text-xl font-bold font-heading text-primary border-b border-border pb-4">Our Core Values</h3>
+              <h3 className="text-xl font-bold font-heading text-primary border-b border-border pb-4">Core Values</h3>
               
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
@@ -59,7 +59,7 @@ const About = () => {
                   <h4 className="font-bold text-text-primary mb-2 flex items-center gap-2">
                     <span className="text-accent">02.</span> Innovation
                   </h4>
-                  <p className="text-sm text-text-secondary">Constantly upgrading our skills and technology to offer the best care possible.</p>
+                  <p className="text-sm text-text-secondary">Constantly upgrading skills and clinical technology to offer the best care possible.</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-text-primary mb-2 flex items-center gap-2">
@@ -206,7 +206,7 @@ const About = () => {
                       <textarea 
                         rows="4"
                         className="w-full bg-surface-alt border border-border rounded-xl px-4 py-3.5 text-sm focus-ring transition-shadow resize-none"
-                        placeholder="Tell us about your experience..."
+                        placeholder="Share your experience..."
                       ></textarea>
                     </div>
 

@@ -50,7 +50,7 @@ const ClinicHours = () => {
       
       <div className="mt-8 pt-6 border-t border-divider">
         <p className="text-sm text-text-muted text-center leading-relaxed">
-          In case of dental emergencies during off-hours, please contact us on WhatsApp directly.
+          In case of dental emergencies during off-hours, please contact Dr. Malkesh on WhatsApp directly.
         </p>
       </div>
     </FadeInSection>

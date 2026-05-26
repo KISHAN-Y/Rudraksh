@@ -12,7 +12,7 @@ const ServicesGrid = () => {
       <div className="container overflow-hidden">
         <SectionHeading 
           title="Comprehensive Care" 
-          subtitle="Our Treatments" 
+          subtitle="Treatments Offered" 
           className="mb-16"
         />
         

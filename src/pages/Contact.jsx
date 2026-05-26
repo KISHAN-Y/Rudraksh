@@ -12,12 +12,12 @@ const Contact = () => {
         <div className="container max-w-4xl text-center">
           <SectionHeading 
             title="Get in Touch" 
-            subtitle="We're Here to Help"
+            subtitle="Here for You"
             className="mb-8"
           />
           <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
-            Schedule your consultation today. Our friendly team is ready to answer 
-            your questions and welcome you to our state-of-the-art facility.
+            Schedule your consultation today. Dr. Malkesh Pankhaniya is ready to personalize 
+            your care, answer your questions, and welcome you to his state-of-the-art facility.
           </p>
         </div>
       </div>

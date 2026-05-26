@@ -49,7 +49,7 @@ const ContactForm = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'public_key_placeholder'
       );
       
-      toast.success('Message sent! We will contact you soon.');
+      toast.success('Message sent! Dr. Malkesh will contact you soon.');
       reset();
     } catch (error) {
       console.error('EmailJS Error:', error);
@@ -147,7 +147,7 @@ const ContactForm = () => {
             {...register('message')} 
             rows="3"
             name="message"
-            placeholder="Tell us about your dental concern..."
+            placeholder="Describe your dental concern..."
             className={`${inputClass} resize-none`}
           ></textarea>
         </div>

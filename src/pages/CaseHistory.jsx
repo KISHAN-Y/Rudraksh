@@ -24,8 +24,8 @@ const CaseHistory = () => {
             className="mb-8"
           />
           <p className="text-text-secondary text-lg max-w-2xl mx-auto leading-relaxed">
-            Explore our successfully completed cases. These real-life transformations 
-            demonstrate our commitment to clinical excellence and aesthetic perfection.
+            Explore successfully completed cases. These real-life transformations 
+            demonstrate Dr. Malkesh Pankhaniya's commitment to clinical excellence and aesthetic perfection.
           </p>
         </div>
       </div>
