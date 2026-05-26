@@ -31,7 +31,7 @@ const App = () => {
       
       <Navbar />
       
-      <main className={`flex-grow ${location.pathname === '/' ? '' : 'pt-[88px] lg:pt-[136px]'}`}>
+      <main className={`flex-grow ${location.pathname === '/' ? '' : 'pt-[88px] lg:pt-[104px]'}`}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

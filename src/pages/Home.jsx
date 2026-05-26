@@ -1,26 +1,24 @@
 import React from 'react';
 import HeroSection from '../components/home/HeroSection';
+import StatsBar from '../components/home/StatsBar';
 import AboutDoctor from '../components/home/AboutDoctor';
-import VideoSection from '../components/home/VideoSection';
-import StatsSection from '../components/home/StatsSection';
 import ServicesGrid from '../components/home/ServicesGrid';
-import TeamSection from '../components/home/TeamSection';
+import WhyChooseUs from '../components/home/WhyChooseUs';
 import Testimonials from '../components/home/Testimonials';
-import ProcessSection from '../components/home/ProcessSection';
 import BeforeAfterSlider from '../components/home/BeforeAfterSlider';
 import FAQAccordion from '../components/home/FAQAccordion';
+import SectionDivider from '../components/common/SectionDivider';
 
 const Home = () => {
   return (
     <>
       <HeroSection />
+      <StatsBar />
       <AboutDoctor />
-      <VideoSection />
-      <StatsSection />
+      <SectionDivider variant="wave" className="-mt-1 bg-page-bg" />
       <ServicesGrid />
-      <TeamSection />
+      <WhyChooseUs />
       <Testimonials />
-      <ProcessSection />
       <BeforeAfterSlider />
       <FAQAccordion />
     </>

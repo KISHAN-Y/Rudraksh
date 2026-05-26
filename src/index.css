@@ -28,13 +28,6 @@
   --color-border-strong: #B0D4F0;
   --color-divider: #EBF4FC;
 
-  /* Custom Redesign Mockup Style Adaptations (using original palette) */
-  --color-brand-dark: #0A192F;      /* Deep navy for dark sections */
-  --color-brand-medium: #112240;    /* Mid navy for card/grid backdrops */
-  --color-brand-accent: #4ABFAA;    /* Teal accent (originally mint) */
-  --color-brand-accent-alt: #5AACE0;/* Blue accent */
-  --color-brand-light: #F0F8FF;     /* Alice blue for light sections */
-
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Aptos', 'Segoe UI', 'Inter', system-ui, sans-serif;
 }

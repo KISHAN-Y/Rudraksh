@@ -1,120 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useEffect } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import SectionHeading from '../common/SectionHeading';
+import FadeInSection from '../common/FadeInSection';
 import { testimonials } from '../../data/testimonials';
-import MosaicGrid from '../common/MosaicGrid';
 
 const Testimonials = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+    if (emblaApi) {
+      const interval = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [emblaApi]);
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const current = testimonials[activeIndex];
+  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
+  const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="py-24 bg-brand-light overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+    <section className="py-24 bg-page-bg overflow-hidden">
+      <div className="container relative">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <SectionHeading 
+            title="What Our Patients Say" 
+            subtitle="Real Stories" 
+            centered={false}
+            className="mb-0"
+          />
           
-          {/* Left Column: Testimonial details & quotes */}
-          <div className="lg:col-span-7 space-y-8 text-left">
-            <div className="space-y-4">
-              <span className="text-brand-accent font-heading font-bold text-xs uppercase tracking-[0.2em] block">
-                Testimonials
-              </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-brand-dark leading-tight">
-                What Our Patients<br />
-                Say About Us
-              </h2>
-            </div>
-
-            {/* Quotation icon */}
-            <div className="text-brand-accent">
-              <Quote size={56} className="opacity-80" fill="currentColor" />
-            </div>
-
-            {/* Quote details */}
-            <div className="space-y-6">
-              <p className="text-xl md:text-2xl text-brand-dark italic font-body leading-relaxed max-w-xl transition-opacity duration-500">
-                "{current.text}"
-              </p>
-              
-              {/* Author name & details */}
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-brand-dark text-brand-accent flex items-center justify-center font-heading font-bold rounded-none shadow-md">
-                  {current.name.charAt(0)}
-                </div>
-                <div>
-                  <h4 className="font-heading font-bold text-brand-dark text-base">
-                    {current.name}
-                  </h4>
-                  <p className="text-xs text-text-secondary font-semibold tracking-wider font-heading uppercase">
-                    Patient - {current.treatment}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Simple slider navigation controls */}
-            <div className="flex gap-3 pt-4">
-              <button 
-                onClick={handlePrev}
-                className="w-10 h-10 border border-brand-accent/25 hover:border-brand-accent bg-[#0e2c2c] hover:bg-brand-accent hover:text-brand-dark text-white flex items-center justify-center transition-all duration-300 rounded-none cursor-pointer"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button 
-                onClick={handleNext}
-                className="w-10 h-10 border border-brand-accent/25 hover:border-brand-accent bg-[#0e2c2c] hover:bg-brand-accent hover:text-brand-dark text-white flex items-center justify-center transition-all duration-300 rounded-none cursor-pointer"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
+          <div className="flex gap-4">
+            <button 
+              onClick={scrollPrev}
+              className="w-12 h-12 rounded-full border border-border bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors focus-ring"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={scrollNext}
+              className="w-12 h-12 rounded-full border border-border bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors focus-ring"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
-
-          {/* Right Column: Decorative Mosaic Frame */}
-          <div className="lg:col-span-5 relative flex justify-center items-center h-[340px]">
-            <div className="relative">
-              {/* Central dark block */}
-              <div className="w-[260px] h-[260px] bg-brand-dark border border-white/5 shadow-2xl relative z-10 flex flex-col justify-between p-6">
-                <div className="w-6 h-6 border-b border-r border-brand-accent/30 self-end" />
-                <span className="text-[10px] tracking-[0.25em] font-heading font-bold text-white/30 uppercase leading-none select-none">
-                  Tested Quality Care
-                </span>
-              </div>
-
-              {/* Mosaic sticking out top-right */}
-              <div className="absolute -top-6 -right-6 z-20">
-                <MosaicGrid preset="testimonial-corner" width="w-24" height="h-24" />
-              </div>
-
-              {/* Mosaic sticking out bottom-left */}
-              <div className="absolute -bottom-6 -left-6 z-20">
-                <div className="grid grid-cols-2 grid-rows-2 gap-1 w-12 h-12">
-                  <div className="bg-brand-accent rounded-sm" />
-                  <div className="bg-transparent" />
-                  <div className="bg-transparent" />
-                  <div className="bg-brand-accent-alt rounded-sm" />
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        <FadeInSection>
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex backface-hidden -ml-6">
+              {testimonials.map((review) => (
+                <div key={review.id} className="min-w-0 flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-6">
+                  <div className="bg-white p-8 rounded-2xl border border-border card-shadow h-full flex flex-col">
+                    <div className="flex gap-1 mb-6 text-accent">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} size={18} fill="currentColor" />
+                      ))}
+                    </div>
+                    
+                    <p className="text-text-secondary leading-relaxed italic flex-grow mb-8">
+                      "{review.text}"
+                    </p>
+                    
+                    <div className="flex items-center gap-4 mt-auto pt-6 border-t border-divider">
+                      <div className="w-12 h-12 rounded-full bg-primary-light text-primary flex items-center justify-center font-bold text-lg">
+                        {review.name.charAt(0)}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-text-primary text-sm">{review.name}</h4>
+                        <span className="text-text-muted text-xs bg-page-bg px-2 py-1 rounded inline-block mt-1">
+                          {review.treatment}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeInSection>
       </div>
     </section>
   );
