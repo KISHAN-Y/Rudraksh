@@ -1,13 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 import { Send, Loader2 } from 'lucide-react';
 import Button from '../common/Button';
 
-// Define the validation schema using Zod
+// Validation schema
 const contactSchema = z.object({
   fullName: z.string().min(2, 'Name must be at least 2 characters'),
   phone: z.string().regex(/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian mobile number'),
@@ -17,9 +16,13 @@ const contactSchema = z.object({
   message: z.string().optional()
 });
 
+// API Endpoint URL configuration:
+// - Local Dev fallback: 'http://localhost:3000'
+// - Production: Set VITE_API_URL in your hosting platform (GitHub Actions / Vercel env vars)
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef(null);
   
   const { 
     register, 
@@ -42,23 +45,23 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_placeholder',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_placeholder',
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'public_key_placeholder'
-      );
-      
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.meta?.error || 'Something went wrong');
+      }
+
       toast.success('Message sent! Dr. Malkesh will contact you soon.');
       reset();
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      if (!import.meta.env.VITE_EMAILJS_SERVICE_ID) {
-        toast.success('(Demo Mode) Message recorded successfully!');
-        reset();
-      } else {
-        toast.error('Failed to send message. Please try calling us instead.');
-      }
+      console.error('Contact form error:', error);
+      toast.error(error.message || 'Failed to send message. Please try calling us instead.');
     } finally {
       setIsSubmitting(false);
     }
@@ -76,14 +79,13 @@ const ContactForm = () => {
     <div className="bg-white p-8 rounded-3xl shadow-xl border border-border card-shadow w-full">
       <h3 className="text-2xl font-bold font-heading text-text-primary mb-6">Book an Appointment</h3>
       
-      <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="grid md:grid-cols-2 gap-5">
           <div>
             <label className={labelClass}>Full Name <span className="text-accent">*</span></label>
             <input 
               {...register('fullName')} 
               type="text" 
-              name="fullName"
               placeholder="John Doe"
               className={inputClass}
             />
@@ -95,7 +97,6 @@ const ContactForm = () => {
             <input 
               {...register('phone')} 
               type="tel" 
-              name="phone"
               placeholder="9876543210"
               className={inputClass}
             />
@@ -109,7 +110,6 @@ const ContactForm = () => {
             <input 
               {...register('email')} 
               type="email" 
-              name="email"
               placeholder="john@example.com"
               className={inputClass}
             />
@@ -120,7 +120,6 @@ const ContactForm = () => {
             <label className={labelClass}>Treatment Interested In <span className="text-accent">*</span></label>
             <select 
               {...register('service')} 
-              name="service"
               className={inputClass}
             >
               <option value="">Select a treatment...</option>
@@ -135,7 +134,6 @@ const ContactForm = () => {
           <input 
             {...register('date')} 
             type="date" 
-            name="date"
             className={inputClass}
             min={new Date().toISOString().split('T')[0]}
           />
@@ -146,7 +144,6 @@ const ContactForm = () => {
           <textarea 
             {...register('message')} 
             rows="3"
-            name="message"
             placeholder="Describe your dental concern..."
             className={`${inputClass} resize-none`}
           ></textarea>

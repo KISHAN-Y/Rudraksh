@@ -7,6 +7,7 @@ import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import WhatsAppFloat from './components/common/WhatsAppFloat';
+import CookieConsent from './components/common/CookieConsent';
 import PageLoader from './components/common/PageLoader';
 
 import Home from './pages/Home';
@@ -44,6 +45,7 @@ const App = () => {
 
       <Footer />
       <WhatsAppFloat />
+      <CookieConsent />
     </div>
   );
 };

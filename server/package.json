@@ -1,0 +1,16 @@
+{
+  "name": "rudreksh-api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/server.js",
+    "start:dev": "node --watch --env-file=.env src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "express-rate-limit": "^7.5.0",
+    "resend": "^4.5.1"
+  }
+}
