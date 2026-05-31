@@ -1,5 +1,5 @@
 import React from 'react';
-import ToothIcon from './ToothIcon';
+import Logo from './Logo';
 
 const SectionHeading = ({ 
   title, 
@@ -14,7 +14,7 @@ const SectionHeading = ({
     <div className={`flex flex-col space-y-3 max-w-2xl ${alignment} ${className}`}>
       {subtitle && (
         <div className="flex items-center gap-2 text-primary font-medium tracking-wider uppercase text-sm">
-          <ToothIcon className="w-4 h-4" />
+          <Logo className="w-4 h-4" />
           <span>{subtitle}</span>
           {!centered && <div className="h-px bg-primary/30 w-12 ml-2"></div>}
         </div>

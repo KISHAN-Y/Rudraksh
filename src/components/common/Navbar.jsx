@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
-import ToothIcon from './ToothIcon';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -98,10 +98,10 @@ const Navbar = () => {
         <div className={`w-full transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5'}`}>
           <div className="container mx-auto px-4 flex items-center justify-between">
             
-            {/* Logo matching the screenshot (Tooth inside a D-shape container) */}
+            {/* Logo matching the screenshot (Brand logo inside a D-shape container) */}
             <NavLink to="/" className="flex items-center gap-3 z-[70] group">
               <div className="w-10 h-10 bg-primary rounded-l-[8px] rounded-r-[20px] flex items-center justify-center shadow-md shadow-primary/25 transition-transform group-hover:scale-105 duration-300">
-                <ToothIcon className="w-5 h-5 text-white" />
+                <Logo className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-xl md:text-2xl leading-none text-text-primary">

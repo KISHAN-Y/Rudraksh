@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import ToothIcon from './ToothIcon';
+import Logo from './Logo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +13,7 @@ const Footer = () => {
           
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 text-primary font-heading font-bold text-2xl">
-              <ToothIcon className="w-8 h-8" />
+              <Logo className="w-8 h-8 text-primary" />
               <span>Rudreksh</span>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed">
